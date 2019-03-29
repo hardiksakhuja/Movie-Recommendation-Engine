@@ -1,5 +1,6 @@
 import pandas as pd
 import numpy as np
+import matplotlib.pyplot as plt
 
 df1 = pd.read_csv('tmdb_5000_credits.csv')
 df2 = pd.read_csv('tmdb_5000_movies.csv')
@@ -28,3 +29,14 @@ q_movies = qual_movies.sort_values('score',ascending=False)
 print(q_movies.head(2))
 
 print(q_movies[['Title','vote_count','vote_average','score']].head(10))
+
+
+pop= df2.sort_values('popularity', ascending=False)
+plt.figure(figsize=(12,4))
+
+plt.barh(pop['title'].head(6),pop['popularity'].head(6), align='center',
+        color='skyblue')
+plt.gca().invert_yaxis()
+plt.xlabel("Popularity")
+plt.title("Popular Movies")
+plt.show()
