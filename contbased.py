@@ -38,7 +38,10 @@ def get_recommendations(title, cosine=cosine):
     #print(diff)
 
     # Get the movie indices
+    #movie_indices=[]
     movie_indices = [i[0] for i in sim_scores]
+    #for i in sim_scores:
+        #movie_indices.append(i[0])
 
     # Return the top 10 most similar movies
     return df2['title'].iloc[movie_indices]
